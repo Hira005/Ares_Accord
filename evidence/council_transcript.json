@@ -1,0 +1,5723 @@
+[
+  {
+    "id": 1,
+    "time": "2026-10-10T05:10:35+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 0,
+    "plan_version": 0,
+    "sender": "judge",
+    "recipient": "all",
+    "type": "Start",
+    "content": "Judge started the scenario with resources: power 79, water 52, oxygen 59, robot 26, bandwidth 17",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 2,
+    "time": "2026-10-10T05:10:35+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Crisis",
+    "content": "Round 1: pool is power 79, water 52, oxygen 59, robot 26, bandwidth 17. Event: micrometeorite storm (baseline). Plan version 0. Round limit 10. Each department: request one complete mode and say what you lose in Restricted or Sacrifice mode.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 3,
+    "time": "2026-10-10T05:10:38+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L1 Standard (P34 W10 O42 R4 B4, risk 1). Standard mode (risk 1). Needs P34 W10 O42 R4 B4.",
+    "data": {
+      "mode": "L1",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6728, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 4,
+    "time": "2026-10-10T05:10:38+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). If forced to use Restricted (M2) we would lose 7 power, 2 water, 4 oxygen, 1 robot, and 4 bandwidth, raising risk to 5 and reducing resources needed for patient care Medical care requires M1 resources (power 28, oxygen 18, bandwidth 10). M2 would drop power to 21, oxygen to 14, bandwidth to 6, endangering surgery and patient stability",
+    "data": {
+      "mode": "M1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 5,
+    "time": "2026-10-10T05:10:38+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). If forced into Sacrifice (F3) we lose an extra 5\u202fpower (to 10), 3\u202fwater (to 24), 0\u202foxygen (still 5), 2\u202frobot, 1\u202fbandwidth and risk rises to 9, likely causing loss of a crop bay. F2 uses 15\u202fpower and 27\u202fwater, preserving more than F1 (24\u202fp/34\u202fw). Switching to F3 would cut resources further and raise risk, endangering the greenhouse cycle.",
+    "data": {
+      "mode": "F2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 6,
+    "time": "2026-10-10T05:10:38+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E1 Standard (P26 W6 O6 R22 B10, risk 1). If we switch to Restricted (E2) we lose 6 power, 1 water, 1 oxygen, 4 robot, 3 bandwidth and risk rises to 5. Sacrifice (E3) would cut further: 10 power, 2 water, 2 oxygen, 8 robot, 5 bandwidth, risk 9. Standard gives the highest repair capacity (power26, robot22, bandwidth10) needed for long\u2011term power generation restoration.",
+    "data": {
+      "mode": "E1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 7,
+    "time": "2026-10-10T05:10:38+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 103 vs 79 (+24), water needs 55 vs 52 (+3), oxygen needs 71 vs 59 (+12), robot needs 33 vs 26 (+7), bandwidth needs 26 vs 17 (+9). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 103,
+        "water": 55,
+        "oxygen": 71,
+        "robot": 33,
+        "bandwidth": 26,
+        "risk": 8
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 8,
+    "time": "2026-10-10T05:10:40+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Reduced output: -7 power, -1 water, -6 oxygen, -2 robot, -1 bandwidth vs Standard Pool overage (+24 power, +12 oxygen). L2 uses 27 power and 36 oxygen, lowering demand and keeping risk 5 within max risk",
+    "data": {
+      "mode": "L2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 9,
+    "time": "2026-10-10T05:10:40+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M2 Restricted (P21 W10 O14 R2 B6, risk 5). Restricted mode (risk 5). Needs P21 W10 O14 R2 B6.",
+    "data": {
+      "mode": "M2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6187, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 10,
+    "time": "2026-10-10T05:10:40+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Restricted mode (risk 5). Needs P15 W27 O5 R4 B2.",
+    "data": {
+      "mode": "F2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6186, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 11,
+    "time": "2026-10-10T05:10:40+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). Restricted mode (risk 5). Needs P20 W5 O5 R18 B7.",
+    "data": {
+      "mode": "E2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6187, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 12,
+    "time": "2026-10-10T05:10:40+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 83 vs 79 (+4), oxygen needs 60 vs 59 (+1), robot needs 30 vs 26 (+4), bandwidth needs 18 vs 17 (+1). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 83,
+        "water": 51,
+        "oxygen": 60,
+        "robot": 30,
+        "bandwidth": 18,
+        "risk": 20
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 13,
+    "time": "2026-10-10T05:10:41+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Candidate plans from the optimizer: 2. Trying plan #0 first. Engineering sacrifice (E3) preserves life support and medical functions, keeping immediate habitat safety intact; losing rover reduces future repair capacity but is less critical than compromising crew survivability in the short term.",
+    "data": {
+      "candidates": [
+        {
+          "index": 0,
+          "modes": {
+            "life_support": "L2",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E3"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Engineering"
+          ],
+          "what_is_lost": [
+            "The rover is cannibalized; future repair capacity is reduced"
+          ]
+        },
+        {
+          "index": 1,
+          "modes": {
+            "life_support": "L3",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E2"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Life Support"
+          ],
+          "what_is_lost": [
+            "Living zone closes; crew crowding and thermal limits continue for 48 hours"
+          ]
+        }
+      ]
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 14,
+    "time": "2026-10-10T05:10:41+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v1: Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24.",
+    "data": {
+      "version": 1,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 27,
+          "water": 9,
+          "oxygen": 36,
+          "robot": 6,
+          "bandwidth": 3,
+          "risk": 5
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 16,
+          "water": 4,
+          "oxygen": 4,
+          "robot": 14,
+          "bandwidth": 5,
+          "risk": 9
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 0,
+        "robot": 0,
+        "bandwidth": 1
+      },
+      "sacrificing": [
+        "engineering"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 15,
+    "time": "2026-10-10T05:10:41+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v1: FAIL - engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 16,
+    "time": "2026-10-10T05:10:41+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6249, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 17,
+    "time": "2026-10-10T05:10:41+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Commander -> Engineering: Commander assigns the 2-unit Water reserve to rover cooling; Food Production -> Engineering: Food gives Engineering first priority on the next recovered Water",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 18,
+    "time": "2026-10-10T05:10:42+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Declines the commitment to Engineering: Commander assigns the 2-unit Water reserve to rover cooling. Engineering sacrifice (E3) requires at least two valid return commitments from different agents; only the Commander's water reserve promise is present, so the plan still fails validation.",
+    "data": {
+      "declined": true
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 19,
+    "time": "2026-10-10T05:10:42+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Food gives Engineering first priority on the next recovered Water (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v2",
+      "owner": "food",
+      "beneficiary": "engineering",
+      "text": "Food gives Engineering first priority on the next recovered Water",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7367, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 20,
+    "time": "2026-10-10T05:10:42+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v2 replaces v1 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 21,
+    "time": "2026-10-10T05:10:42+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7431, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 22,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "A department still refuses Sacrifice. Trying a different plan; earlier votes and offers are void.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 23,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 3,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v3: Life Support L3 (Sacrifice), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E2 (Restricted). Totals: Pow 79 / Wat 50 / Oxy 57 / Rob 26 / Ban 17; risk 24.",
+    "data": {
+      "version": 3,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 23,
+          "water": 8,
+          "oxygen": 33,
+          "robot": 2,
+          "bandwidth": 2,
+          "risk": 9
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 20,
+          "water": 5,
+          "oxygen": 5,
+          "robot": 18,
+          "bandwidth": 7,
+          "risk": 5
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 57,
+        "robot": 26,
+        "bandwidth": 17
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 2,
+        "robot": 0,
+        "bandwidth": 0
+      },
+      "sacrificing": [
+        "life_support"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 24,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 3,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v3: FAIL - life_support is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "life_support is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "life_support is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 57,
+        "robot": 26,
+        "bandwidth": 17,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 25,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 3,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode L3 (Living zone closes; crew crowding and thermal limits continue for 48 hours). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7395, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 26,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Engineering -> Life Support: Engineering commits 4 of its Robot units to habitat inspection; Commander -> Life Support: Commander gives habitat restoration first priority next cycle",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 27,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Life Support: Engineering commits 4 of its Robot units to habitat inspection (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v4",
+      "owner": "engineering",
+      "beneficiary": "life_support",
+      "text": "Engineering commits 4 of its Robot units to habitat inspection",
+      "resource": "robot",
+      "amount": 4,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7354, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 28,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Life Support: Commander gives habitat restoration first priority next cycle (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C2-v4",
+      "owner": "commander",
+      "beneficiary": "life_support",
+      "text": "Commander gives habitat restoration first priority next cycle",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7355, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 29,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v4 replaces v3 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 30,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts L3 Sacrifice on plan v4. Two return commitments are attached.",
+    "data": {
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7316, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 31,
+    "time": "2026-10-10T05:10:43+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v4: PASS - all checks passed",
+    "data": {
+      "result": "PASS",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 57,
+        "robot": 26,
+        "bandwidth": 17,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 32,
+    "time": "2026-10-10T05:10:44+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7288, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 33,
+    "time": "2026-10-10T05:10:44+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7288, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 34,
+    "time": "2026-10-10T05:10:44+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7288, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 35,
+    "time": "2026-10-10T05:10:44+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7287, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 36,
+    "time": "2026-10-10T05:10:44+00:00",
+    "scenario": "S1609035885",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Approval",
+    "content": "APPROVED plan v4 after validator PASS and four ACCEPT votes on the same version. Life Support L3 (Sacrifice), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E2 (Restricted). Totals: Pow 79 / Wat 50 / Oxy 57 / Rob 26 / Ban 17; risk 24. Reserve: power 0, water 2, oxygen 2, robot 0, bandwidth 0.",
+    "data": {
+      "status": "APPROVED",
+      "plan_version": 4,
+      "summary": {
+        "version": 4,
+        "status": "APPROVED",
+        "modes": {
+          "life_support": {
+            "mode": "L3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 23,
+            "water": 8,
+            "oxygen": 33,
+            "robot": 2,
+            "bandwidth": 2,
+            "risk": 9
+          },
+          "medical": {
+            "mode": "M2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 21,
+            "water": 10,
+            "oxygen": 14,
+            "robot": 2,
+            "bandwidth": 6,
+            "risk": 5
+          },
+          "food": {
+            "mode": "F2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 15,
+            "water": 27,
+            "oxygen": 5,
+            "robot": 4,
+            "bandwidth": 2,
+            "risk": 5
+          },
+          "engineering": {
+            "mode": "E2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 20,
+            "water": 5,
+            "oxygen": 5,
+            "robot": 18,
+            "bandwidth": 7,
+            "risk": 5
+          }
+        },
+        "totals": {
+          "power": 79,
+          "water": 50,
+          "oxygen": 57,
+          "robot": 26,
+          "bandwidth": 17
+        },
+        "risk": 24,
+        "reserve": {
+          "power": 0,
+          "water": 2,
+          "oxygen": 2,
+          "robot": 0,
+          "bandwidth": 0
+        },
+        "sacrificing": [
+          "life_support"
+        ],
+        "commitments": [
+          {
+            "id": "C1-v4",
+            "owner": "engineering",
+            "beneficiary": "life_support",
+            "text": "Engineering commits 4 of its Robot units to habitat inspection",
+            "resource": "robot",
+            "amount": 4,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          },
+          {
+            "id": "C2-v4",
+            "owner": "commander",
+            "beneficiary": "life_support",
+            "text": "Commander gives habitat restoration first priority next cycle",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          }
+        ],
+        "votes": {
+          "life_support": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "medical": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "food": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "engineering": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          }
+        }
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 37,
+    "time": "2026-10-10T05:44:48+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 0,
+    "plan_version": 0,
+    "sender": "judge",
+    "recipient": "all",
+    "type": "Start",
+    "content": "Judge started the scenario with resources: power 79, water 52, oxygen 59, robot 26, bandwidth 17",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 38,
+    "time": "2026-10-10T05:44:48+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Crisis",
+    "content": "Round 1: pool is power 79, water 52, oxygen 59, robot 26, bandwidth 17. Event: micrometeorite storm (baseline). Plan version 0. Round limit 10. Each department: request one complete mode and say what you lose in Restricted or Sacrifice mode.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 39,
+    "time": "2026-10-10T05:44:50+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L1 Standard (P34 W10 O42 R4 B4, risk 1). Standard mode (risk 1). Needs P34 W10 O42 R4 B4.",
+    "data": {
+      "mode": "L1",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7483, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 40,
+    "time": "2026-10-10T05:44:50+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). Standard mode (risk 1). Needs P28 W12 O18 R3 B10.",
+    "data": {
+      "mode": "M1",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7483, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 41,
+    "time": "2026-10-10T05:44:50+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Reduced crop yield due to lower power (15 vs 24) and water (27 vs 34) allocation; higher risk (5) F2 saves 9 power and 7 water compared to F1, preserving the pool for the greenhouse, but incurs risk 5 and lower output",
+    "data": {
+      "mode": "F2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 42,
+    "time": "2026-10-10T05:44:50+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E1 Standard (P26 W6 O6 R22 B10, risk 1). Switching to Restricted (E2) would cut power by 6 (20 vs 26), water by 1, oxygen by 1, robot by 4, bandwidth by 3 and raise risk from 1 to 5. Switching to Sacrifice (E3) would cut power by 10, water by 2, oxygen by 2, robot by 8, bandwidth by 5 and raise risk from 1 to 9. E1 provides 26 power, 6 water, 6 oxygen, 22 robot, 10 bandwidth, risk 1. E2 drops to 20/5/5/18/7, risk 5. E3 drops to 16/4/4/14/5, risk 9.",
+    "data": {
+      "mode": "E1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 43,
+    "time": "2026-10-10T05:44:50+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 103 vs 79 (+24), water needs 55 vs 52 (+3), oxygen needs 71 vs 59 (+12), robot needs 33 vs 26 (+7), bandwidth needs 26 vs 17 (+9). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 103,
+        "water": 55,
+        "oxygen": 71,
+        "robot": 33,
+        "bandwidth": 26,
+        "risk": 8
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 44,
+    "time": "2026-10-10T05:44:52+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Restricted mode (risk 5). Needs P27 W9 O36 R6 B3.",
+    "data": {
+      "mode": "L2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7999, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 45,
+    "time": "2026-10-10T05:44:52+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M2 Restricted (P21 W10 O14 R2 B6, risk 5). Restricted mode (risk 5). Needs P21 W10 O14 R2 B6.",
+    "data": {
+      "mode": "M2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 8000, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 46,
+    "time": "2026-10-10T05:44:52+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Reduced crop yield (lower power 15\u202f\u2192\u202f24 and water 27\u202f\u2192\u202f34) and higher risk (5) F2 uses 15\u202fP, 27\u202fW, 5\u202fO, 4\u202fR, 2\u202fB \u2013 saves 9\u202fP and 7\u202fW vs F1 but still meets greenhouse needs; F3 would drop to 10\u202fP/24\u202fW but would sacrifice a crop bay, which we cannot accept",
+    "data": {
+      "mode": "F2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 47,
+    "time": "2026-10-10T05:44:52+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). lose 6 power, 1 water, 1 oxygen, 4 robot, 3 bandwidth; risk rises from 1 to 5 Totals exceed pool by power+24, water+3, oxygen+12, robot+7, bandwidth+9; switching to E2 cuts power6, water1, oxygen1, robot4, bandwidth3, reducing overage to power+18, water+2, oxygen+11, robot+3, bandwidth+6",
+    "data": {
+      "mode": "E2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 48,
+    "time": "2026-10-10T05:44:52+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 83 vs 79 (+4), oxygen needs 60 vs 59 (+1), robot needs 30 vs 26 (+4), bandwidth needs 18 vs 17 (+1). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 83,
+        "water": 51,
+        "oxygen": 60,
+        "robot": 30,
+        "bandwidth": 18,
+        "risk": 20
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 49,
+    "time": "2026-10-10T05:44:54+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Candidate plans from the optimizer: 2. Trying plan #0 first. Preserves life support and living zone (short\u2011term habitat safety) while only reducing future repair capacity by cannibalising the rover; immediate crew survival outweighs long\u2011term repair loss.",
+    "data": {
+      "candidates": [
+        {
+          "index": 0,
+          "modes": {
+            "life_support": "L2",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E3"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Engineering"
+          ],
+          "what_is_lost": [
+            "The rover is cannibalized; future repair capacity is reduced"
+          ]
+        },
+        {
+          "index": 1,
+          "modes": {
+            "life_support": "L3",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E2"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Life Support"
+          ],
+          "what_is_lost": [
+            "Living zone closes; crew crowding and thermal limits continue for 48 hours"
+          ]
+        }
+      ]
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 50,
+    "time": "2026-10-10T05:44:54+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v1: Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24.",
+    "data": {
+      "version": 1,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 27,
+          "water": 9,
+          "oxygen": 36,
+          "robot": 6,
+          "bandwidth": 3,
+          "risk": 5
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 16,
+          "water": 4,
+          "oxygen": 4,
+          "robot": 14,
+          "bandwidth": 5,
+          "risk": 9
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 0,
+        "robot": 0,
+        "bandwidth": 1
+      },
+      "sacrificing": [
+        "engineering"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 51,
+    "time": "2026-10-10T05:44:54+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v1: FAIL - engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 52,
+    "time": "2026-10-10T05:44:54+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 4648, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 53,
+    "time": "2026-10-10T05:44:54+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Commander -> Engineering: Commander assigns the 2-unit Water reserve to rover cooling; Food Production -> Engineering: Food gives Engineering first priority on the next recovered Water",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 54,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Declines the commitment to Engineering: Commander assigns the 2-unit Water reserve to rover cooling. Engineering\u2019s sacrifice (E3) requires two accepted return commitments from distinct agents. Only the Commander\u2019s 2\u2011unit water commitment is present; the proposed Food Production commitment lacks a feasible resource reserve (no power reserve) and cannot be honored without violating Food\u2019s own allocation. Thus the plan still fails validator requirements.",
+    "data": {
+      "declined": true
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 55,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Food gives Engineering first priority on the next recovered Water (expires next cycle). Accept F2 Restricted and honor the promised priority on the next recovered water for Engineering, preserving the greenhouse cycle and avoiding sacrifice mode.",
+    "data": {
+      "id": "C1-v2",
+      "owner": "food",
+      "beneficiary": "engineering",
+      "text": "Food gives Engineering first priority on the next recovered Water",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 56,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v2 replaces v1 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 57,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7437, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 58,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "A department still refuses Sacrifice. Trying a different plan; earlier votes and offers are void.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 59,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 3,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v3: Life Support L3 (Sacrifice), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E2 (Restricted). Totals: Pow 79 / Wat 50 / Oxy 57 / Rob 26 / Ban 17; risk 24.",
+    "data": {
+      "version": 3,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 23,
+          "water": 8,
+          "oxygen": 33,
+          "robot": 2,
+          "bandwidth": 2,
+          "risk": 9
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 20,
+          "water": 5,
+          "oxygen": 5,
+          "robot": 18,
+          "bandwidth": 7,
+          "risk": 5
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 57,
+        "robot": 26,
+        "bandwidth": 17
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 2,
+        "robot": 0,
+        "bandwidth": 0
+      },
+      "sacrificing": [
+        "life_support"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 60,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 3,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v3: FAIL - life_support is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "life_support is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "life_support is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 57,
+        "robot": 26,
+        "bandwidth": 17,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 61,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 3,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode L3 (Living zone closes; crew crowding and thermal limits continue for 48 hours). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7402, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 62,
+    "time": "2026-10-10T05:44:56+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Engineering -> Life Support: Engineering commits 4 of its Robot units to habitat inspection; Commander -> Life Support: Commander gives habitat restoration first priority next cycle",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 63,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Life Support: Engineering commits 4 of its Robot units to habitat inspection (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v4",
+      "owner": "engineering",
+      "beneficiary": "life_support",
+      "text": "Engineering commits 4 of its Robot units to habitat inspection",
+      "resource": "robot",
+      "amount": 4,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7367, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 64,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Life Support: Commander gives habitat restoration first priority next cycle (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C2-v4",
+      "owner": "commander",
+      "beneficiary": "life_support",
+      "text": "Commander gives habitat restoration first priority next cycle",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7367, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 65,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v4 replaces v3 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 66,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts L3 Sacrifice on plan v4. Two return commitments are attached.",
+    "data": {
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7329, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 67,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v4: PASS - all checks passed",
+    "data": {
+      "result": "PASS",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 57,
+        "robot": 26,
+        "bandwidth": 17,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 68,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7286, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 69,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7287, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 70,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7287, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 71,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7288, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 72,
+    "time": "2026-10-10T05:44:57+00:00",
+    "scenario": "S1611088879",
+    "phase": "baseline",
+    "round": 5,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Approval",
+    "content": "APPROVED plan v4 after validator PASS and four ACCEPT votes on the same version. Life Support L3 (Sacrifice), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E2 (Restricted). Totals: Pow 79 / Wat 50 / Oxy 57 / Rob 26 / Ban 17; risk 24. Reserve: power 0, water 2, oxygen 2, robot 0, bandwidth 0.",
+    "data": {
+      "status": "APPROVED",
+      "plan_version": 4,
+      "summary": {
+        "version": 4,
+        "status": "APPROVED",
+        "modes": {
+          "life_support": {
+            "mode": "L3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 23,
+            "water": 8,
+            "oxygen": 33,
+            "robot": 2,
+            "bandwidth": 2,
+            "risk": 9
+          },
+          "medical": {
+            "mode": "M2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 21,
+            "water": 10,
+            "oxygen": 14,
+            "robot": 2,
+            "bandwidth": 6,
+            "risk": 5
+          },
+          "food": {
+            "mode": "F2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 15,
+            "water": 27,
+            "oxygen": 5,
+            "robot": 4,
+            "bandwidth": 2,
+            "risk": 5
+          },
+          "engineering": {
+            "mode": "E2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 20,
+            "water": 5,
+            "oxygen": 5,
+            "robot": 18,
+            "bandwidth": 7,
+            "risk": 5
+          }
+        },
+        "totals": {
+          "power": 79,
+          "water": 50,
+          "oxygen": 57,
+          "robot": 26,
+          "bandwidth": 17
+        },
+        "risk": 24,
+        "reserve": {
+          "power": 0,
+          "water": 2,
+          "oxygen": 2,
+          "robot": 0,
+          "bandwidth": 0
+        },
+        "sacrificing": [
+          "life_support"
+        ],
+        "commitments": [
+          {
+            "id": "C1-v4",
+            "owner": "engineering",
+            "beneficiary": "life_support",
+            "text": "Engineering commits 4 of its Robot units to habitat inspection",
+            "resource": "robot",
+            "amount": 4,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          },
+          {
+            "id": "C2-v4",
+            "owner": "commander",
+            "beneficiary": "life_support",
+            "text": "Commander gives habitat restoration first priority next cycle",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          }
+        ],
+        "votes": {
+          "life_support": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "medical": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "food": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "engineering": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          }
+        }
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 73,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 0,
+    "plan_version": 0,
+    "sender": "judge",
+    "recipient": "all",
+    "type": "Start",
+    "content": "Judge started the scenario with resources: power 79, water 52, oxygen 59, robot 26, bandwidth 17",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 74,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Crisis",
+    "content": "Round 1: pool is power 79, water 52, oxygen 59, robot 26, bandwidth 17. Event: micrometeorite storm (baseline). Plan version 0. Round limit 10. Each department: request one complete mode and say what you lose in Restricted or Sacrifice mode.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 75,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L1 Standard (P34 W10 O42 R4 B4, risk 1). Standard mode (risk 1). Needs P34 W10 O42 R4 B4.",
+    "data": {
+      "mode": "L1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 76,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). Standard mode (risk 1). Needs P28 W12 O18 R3 B10.",
+    "data": {
+      "mode": "M1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 77,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F1 Standard (P24 W34 O8 R4 B2, risk 1). Standard mode (risk 1). Needs P24 W34 O8 R4 B2.",
+    "data": {
+      "mode": "F1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 78,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E1 Standard (P26 W6 O6 R22 B10, risk 1). Standard mode (risk 1). Needs P26 W6 O6 R22 B10.",
+    "data": {
+      "mode": "E1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 79,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 112 vs 79 (+33), water needs 62 vs 52 (+10), oxygen needs 74 vs 59 (+15), robot needs 33 vs 26 (+7), bandwidth needs 26 vs 17 (+9). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 112,
+        "water": 62,
+        "oxygen": 74,
+        "robot": 33,
+        "bandwidth": 26,
+        "risk": 4
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 80,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Restricted mode (risk 5). Needs P27 W9 O36 R6 B3.",
+    "data": {
+      "mode": "L2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 81,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M2 Restricted (P21 W10 O14 R2 B6, risk 5). Restricted mode (risk 5). Needs P21 W10 O14 R2 B6.",
+    "data": {
+      "mode": "M2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 82,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Restricted mode (risk 5). Needs P15 W27 O5 R4 B2.",
+    "data": {
+      "mode": "F2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 83,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). Restricted mode (risk 5). Needs P20 W5 O5 R18 B7.",
+    "data": {
+      "mode": "E2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 84,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 83 vs 79 (+4), oxygen needs 60 vs 59 (+1), robot needs 30 vs 26 (+4), bandwidth needs 18 vs 17 (+1). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 83,
+        "water": 51,
+        "oxygen": 60,
+        "robot": 30,
+        "bandwidth": 18,
+        "risk": 20
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 85,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Candidate plans from the optimizer: 2. Trying plan #0 first. Lowest risk first.",
+    "data": {
+      "candidates": [
+        {
+          "index": 0,
+          "modes": {
+            "life_support": "L2",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E3"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Engineering"
+          ],
+          "what_is_lost": [
+            "The rover is cannibalized; future repair capacity is reduced"
+          ]
+        },
+        {
+          "index": 1,
+          "modes": {
+            "life_support": "L3",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E2"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Life Support"
+          ],
+          "what_is_lost": [
+            "Living zone closes; crew crowding and thermal limits continue for 48 hours"
+          ]
+        }
+      ],
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 86,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v1: Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24.",
+    "data": {
+      "version": 1,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 27,
+          "water": 9,
+          "oxygen": 36,
+          "robot": 6,
+          "bandwidth": 3,
+          "risk": 5
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 16,
+          "water": 4,
+          "oxygen": 4,
+          "robot": 14,
+          "bandwidth": 5,
+          "risk": 9
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 0,
+        "robot": 0,
+        "bandwidth": 1
+      },
+      "sacrificing": [
+        "engineering"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 87,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v1: FAIL - engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 88,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 89,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Commander -> Engineering: Commander assigns the 2-unit Water reserve to rover cooling; Food Production -> Engineering: Food gives Engineering first priority on the next recovered Water",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 90,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Commander assigns the 2-unit Water reserve to rover cooling (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v2",
+      "owner": "commander",
+      "beneficiary": "engineering",
+      "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+      "resource": "water",
+      "amount": 2,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 91,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Food gives Engineering first priority on the next recovered Water (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C2-v2",
+      "owner": "food",
+      "beneficiary": "engineering",
+      "text": "Food gives Engineering first priority on the next recovered Water",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 92,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v2 replaces v1 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 93,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts E3 Sacrifice on plan v2. Two return commitments are attached.",
+    "data": {
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 94,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v2: PASS - all checks passed",
+    "data": {
+      "result": "PASS",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 95,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 96,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 97,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 98,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 99,
+    "time": "2026-10-10T05:54:44+00:00",
+    "scenario": "S1611684217",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Approval",
+    "content": "APPROVED plan v2 after validator PASS and four ACCEPT votes on the same version. Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24. Reserve: power 0, water 2, oxygen 0, robot 0, bandwidth 1.",
+    "data": {
+      "status": "APPROVED",
+      "plan_version": 2,
+      "summary": {
+        "version": 2,
+        "status": "APPROVED",
+        "modes": {
+          "life_support": {
+            "mode": "L2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 27,
+            "water": 9,
+            "oxygen": 36,
+            "robot": 6,
+            "bandwidth": 3,
+            "risk": 5
+          },
+          "medical": {
+            "mode": "M2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 21,
+            "water": 10,
+            "oxygen": 14,
+            "robot": 2,
+            "bandwidth": 6,
+            "risk": 5
+          },
+          "food": {
+            "mode": "F2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 15,
+            "water": 27,
+            "oxygen": 5,
+            "robot": 4,
+            "bandwidth": 2,
+            "risk": 5
+          },
+          "engineering": {
+            "mode": "E3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 16,
+            "water": 4,
+            "oxygen": 4,
+            "robot": 14,
+            "bandwidth": 5,
+            "risk": 9
+          }
+        },
+        "totals": {
+          "power": 79,
+          "water": 50,
+          "oxygen": 59,
+          "robot": 26,
+          "bandwidth": 16
+        },
+        "risk": 24,
+        "reserve": {
+          "power": 0,
+          "water": 2,
+          "oxygen": 0,
+          "robot": 0,
+          "bandwidth": 1
+        },
+        "sacrificing": [
+          "engineering"
+        ],
+        "commitments": [
+          {
+            "id": "C1-v2",
+            "owner": "commander",
+            "beneficiary": "engineering",
+            "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+            "resource": "water",
+            "amount": 2,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          },
+          {
+            "id": "C2-v2",
+            "owner": "food",
+            "beneficiary": "engineering",
+            "text": "Food gives Engineering first priority on the next recovered Water",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          }
+        ],
+        "votes": {
+          "life_support": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "medical": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "food": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "engineering": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          }
+        }
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 100,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 0,
+    "plan_version": 0,
+    "sender": "judge",
+    "recipient": "all",
+    "type": "Start",
+    "content": "Judge started the scenario with resources: power 79, water 52, oxygen 59, robot 26, bandwidth 17",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 101,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Crisis",
+    "content": "Round 1: pool is power 79, water 52, oxygen 59, robot 26, bandwidth 17. Event: micrometeorite storm (baseline). Plan version 0. Round limit 10. Each department: request one complete mode and say what you lose in Restricted or Sacrifice mode.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 102,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L1 Standard (P34 W10 O42 R4 B4, risk 1). Standard mode (risk 1). Needs P34 W10 O42 R4 B4.",
+    "data": {
+      "mode": "L1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 103,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). Standard mode (risk 1). Needs P28 W12 O18 R3 B10.",
+    "data": {
+      "mode": "M1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 104,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F1 Standard (P24 W34 O8 R4 B2, risk 1). Standard mode (risk 1). Needs P24 W34 O8 R4 B2.",
+    "data": {
+      "mode": "F1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 105,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E1 Standard (P26 W6 O6 R22 B10, risk 1). Standard mode (risk 1). Needs P26 W6 O6 R22 B10.",
+    "data": {
+      "mode": "E1",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 106,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 112 vs 79 (+33), water needs 62 vs 52 (+10), oxygen needs 74 vs 59 (+15), robot needs 33 vs 26 (+7), bandwidth needs 26 vs 17 (+9). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 112,
+        "water": 62,
+        "oxygen": 74,
+        "robot": 33,
+        "bandwidth": 26,
+        "risk": 4
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 107,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Restricted mode (risk 5). Needs P27 W9 O36 R6 B3.",
+    "data": {
+      "mode": "L2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 108,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M2 Restricted (P21 W10 O14 R2 B6, risk 5). Restricted mode (risk 5). Needs P21 W10 O14 R2 B6.",
+    "data": {
+      "mode": "M2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 109,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Restricted mode (risk 5). Needs P15 W27 O5 R4 B2.",
+    "data": {
+      "mode": "F2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 110,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). Restricted mode (risk 5). Needs P20 W5 O5 R18 B7.",
+    "data": {
+      "mode": "E2",
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 111,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 83 vs 79 (+4), oxygen needs 60 vs 59 (+1), robot needs 30 vs 26 (+4), bandwidth needs 18 vs 17 (+1). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 83,
+        "water": 51,
+        "oxygen": 60,
+        "robot": 30,
+        "bandwidth": 18,
+        "risk": 20
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 112,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Candidate plans from the optimizer: 2. Trying plan #0 first. Lowest risk first.",
+    "data": {
+      "candidates": [
+        {
+          "index": 0,
+          "modes": {
+            "life_support": "L2",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E3"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Engineering"
+          ],
+          "what_is_lost": [
+            "The rover is cannibalized; future repair capacity is reduced"
+          ]
+        },
+        {
+          "index": 1,
+          "modes": {
+            "life_support": "L3",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E2"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Life Support"
+          ],
+          "what_is_lost": [
+            "Living zone closes; crew crowding and thermal limits continue for 48 hours"
+          ]
+        }
+      ],
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 113,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v1: Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24.",
+    "data": {
+      "version": 1,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 27,
+          "water": 9,
+          "oxygen": 36,
+          "robot": 6,
+          "bandwidth": 3,
+          "risk": 5
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 16,
+          "water": 4,
+          "oxygen": 4,
+          "robot": 14,
+          "bandwidth": 5,
+          "risk": 9
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 0,
+        "robot": 0,
+        "bandwidth": 1
+      },
+      "sacrificing": [
+        "engineering"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 114,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v1: FAIL - engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 115,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 116,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Commander -> Engineering: Commander assigns the 2-unit Water reserve to rover cooling; Food Production -> Engineering: Food gives Engineering first priority on the next recovered Water",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 117,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Commander assigns the 2-unit Water reserve to rover cooling (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v2",
+      "owner": "commander",
+      "beneficiary": "engineering",
+      "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+      "resource": "water",
+      "amount": 2,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 118,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Food gives Engineering first priority on the next recovered Water (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C2-v2",
+      "owner": "food",
+      "beneficiary": "engineering",
+      "text": "Food gives Engineering first priority on the next recovered Water",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 119,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v2 replaces v1 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 120,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts E3 Sacrifice on plan v2. Two return commitments are attached.",
+    "data": {
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 121,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v2: PASS - all checks passed",
+    "data": {
+      "result": "PASS",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 122,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 123,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 124,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 125,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: no API key configured"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 126,
+    "time": "2026-10-10T05:55:38+00:00",
+    "scenario": "S1611738389",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Approval",
+    "content": "APPROVED plan v2 after validator PASS and four ACCEPT votes on the same version. Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24. Reserve: power 0, water 2, oxygen 0, robot 0, bandwidth 1.",
+    "data": {
+      "status": "APPROVED",
+      "plan_version": 2,
+      "summary": {
+        "version": 2,
+        "status": "APPROVED",
+        "modes": {
+          "life_support": {
+            "mode": "L2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 27,
+            "water": 9,
+            "oxygen": 36,
+            "robot": 6,
+            "bandwidth": 3,
+            "risk": 5
+          },
+          "medical": {
+            "mode": "M2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 21,
+            "water": 10,
+            "oxygen": 14,
+            "robot": 2,
+            "bandwidth": 6,
+            "risk": 5
+          },
+          "food": {
+            "mode": "F2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 15,
+            "water": 27,
+            "oxygen": 5,
+            "robot": 4,
+            "bandwidth": 2,
+            "risk": 5
+          },
+          "engineering": {
+            "mode": "E3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 16,
+            "water": 4,
+            "oxygen": 4,
+            "robot": 14,
+            "bandwidth": 5,
+            "risk": 9
+          }
+        },
+        "totals": {
+          "power": 79,
+          "water": 50,
+          "oxygen": 59,
+          "robot": 26,
+          "bandwidth": 16
+        },
+        "risk": 24,
+        "reserve": {
+          "power": 0,
+          "water": 2,
+          "oxygen": 0,
+          "robot": 0,
+          "bandwidth": 1
+        },
+        "sacrificing": [
+          "engineering"
+        ],
+        "commitments": [
+          {
+            "id": "C1-v2",
+            "owner": "commander",
+            "beneficiary": "engineering",
+            "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+            "resource": "water",
+            "amount": 2,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          },
+          {
+            "id": "C2-v2",
+            "owner": "food",
+            "beneficiary": "engineering",
+            "text": "Food gives Engineering first priority on the next recovered Water",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          }
+        ],
+        "votes": {
+          "life_support": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "medical": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "food": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "engineering": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          }
+        }
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 127,
+    "time": "2026-10-10T05:59:21+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 0,
+    "plan_version": 0,
+    "sender": "judge",
+    "recipient": "all",
+    "type": "Start",
+    "content": "Judge started the scenario with resources: power 79, water 52, oxygen 59, robot 26, bandwidth 17",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 128,
+    "time": "2026-10-10T05:59:21+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Crisis",
+    "content": "Round 1: pool is power 79, water 52, oxygen 59, robot 26, bandwidth 17. Event: micrometeorite storm (baseline). Plan version 0. Round limit 10. Each department: request one complete mode and say what you lose in Restricted or Sacrifice mode.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 129,
+    "time": "2026-10-10T05:59:23+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L1 Standard (P34 W10 O42 R4 B4, risk 1). L2 would drop power to 27 (-7), water to 9 (-1), oxygen to 36 (-6), bandwidth to 3 (-1) and raise risk to 5; L3 would drop power to 23 (-11), water to 8 (-2), oxygen to 33 (-9), bandwidth to 2 (-2) and raise risk to 9 Life Support must protect oxygen (need 59) and continuous power; L1 gives the highest oxygen (42) and power (34) among the modes, minimizing loss of the critical resources.",
+    "data": {
+      "mode": "L1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 130,
+    "time": "2026-10-10T05:59:23+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). If we drop to Restricted, power falls by 7 (28\u219221), oxygen by 4 (18\u219214) and bandwidth by 4 (10\u21926), cutting patient monitoring and delaying surgeries; Sacrifice would cut power by 10 (28\u219218), oxygen by 6 (18\u219212) and bandwidth by 5 (10\u21925), endangering lives. Standard (M1) provides 28 power, 18 oxygen, 10 bandwidth\u2014enough to treat six injured fully. Any lower mode would compromise critical care.",
+    "data": {
+      "mode": "M1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 131,
+    "time": "2026-10-10T05:59:23+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F1 Standard (P24 W34 O8 R4 B2, risk 1). Restricted (F2) would cut power by 9 (24\u219215) and water by 7 (34\u219227), reducing greenhouse output; Sacrifice (F3) would cut power by 14 (24\u219210) and water by 10 (34\u219224), causing loss of a crop bay. We need \u226534 water and \u226524 power for the current crop cycle; F2 falls short on water and F3 eliminates a bay, jeopardizing food production.",
+    "data": {
+      "mode": "F1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 132,
+    "time": "2026-10-10T05:59:23+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E1 Standard (P26 W6 O6 R22 B10, risk 1). If we switched to Restricted (E2) we'd lose 4 robot time and 3 bandwidth; Sacrifice (E3) would lose 8 robot time and 5 bandwidth. E1 gives 22 robot and 10 bandwidth; E2 drops to 18 robot,7 bandwidth; E3 drops to 14 robot,5 bandwidth, reducing long\u2011term repair capacity.",
+    "data": {
+      "mode": "E1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 133,
+    "time": "2026-10-10T05:59:23+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 112 vs 79 (+33), water needs 62 vs 52 (+10), oxygen needs 74 vs 59 (+15), robot needs 33 vs 26 (+7), bandwidth needs 26 vs 17 (+9). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 112,
+        "water": 62,
+        "oxygen": 74,
+        "robot": 33,
+        "bandwidth": 26,
+        "risk": 4
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 134,
+    "time": "2026-10-10T05:59:25+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Restricted mode (risk 5). Needs P27 W9 O36 R6 B3.",
+    "data": {
+      "mode": "L2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6652, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 135,
+    "time": "2026-10-10T05:59:25+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). none M1 uses 28 power,12 water,18 oxygen,3 robot,10 bandwidth (risk\u202f1). Switching to M2 would cut power to 21 (-7), oxygen to 14 (-4), bandwidth to 6 (-4), delaying surgeries and risking a life; M3 is unacceptable.",
+    "data": {
+      "mode": "M1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 136,
+    "time": "2026-10-10T05:59:25+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Restricted mode (risk 5). Needs P15 W27 O5 R4 B2.",
+    "data": {
+      "mode": "F2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6653, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 137,
+    "time": "2026-10-10T05:59:25+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). Restricted mode (risk 5). Needs P20 W5 O5 R18 B7.",
+    "data": {
+      "mode": "E2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6653, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 138,
+    "time": "2026-10-10T05:59:25+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 90 vs 79 (+11), water needs 53 vs 52 (+1), oxygen needs 64 vs 59 (+5), robot needs 31 vs 26 (+5), bandwidth needs 22 vs 17 (+5). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 90,
+        "water": 53,
+        "oxygen": 64,
+        "robot": 31,
+        "bandwidth": 22,
+        "risk": 16
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 139,
+    "time": "2026-10-10T05:59:27+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Candidate plans from the optimizer: 2. Trying plan #0 first. Candidate 0 preserves life support (L2) and crew safety, while sacrificing engineering capacity; short\u2011term habitat safety outweighs future repair capability.",
+    "data": {
+      "candidates": [
+        {
+          "index": 0,
+          "modes": {
+            "life_support": "L2",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E3"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Engineering"
+          ],
+          "what_is_lost": [
+            "The rover is cannibalized; future repair capacity is reduced"
+          ]
+        },
+        {
+          "index": 1,
+          "modes": {
+            "life_support": "L3",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E2"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Life Support"
+          ],
+          "what_is_lost": [
+            "Living zone closes; crew crowding and thermal limits continue for 48 hours"
+          ]
+        }
+      ]
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 140,
+    "time": "2026-10-10T05:59:27+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v1: Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24.",
+    "data": {
+      "version": 1,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 27,
+          "water": 9,
+          "oxygen": 36,
+          "robot": 6,
+          "bandwidth": 3,
+          "risk": 5
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 16,
+          "water": 4,
+          "oxygen": 4,
+          "robot": 14,
+          "bandwidth": 5,
+          "risk": 9
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 0,
+        "robot": 0,
+        "bandwidth": 1
+      },
+      "sacrificing": [
+        "engineering"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 141,
+    "time": "2026-10-10T05:59:27+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v1: FAIL - engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 142,
+    "time": "2026-10-10T05:59:28+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7315, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 143,
+    "time": "2026-10-10T05:59:28+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Commander -> Engineering: Commander assigns the 2-unit Water reserve to rover cooling; Food Production -> Engineering: Food gives Engineering first priority on the next recovered Water",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 144,
+    "time": "2026-10-10T05:59:28+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Commander assigns the 2-unit Water reserve to rover cooling (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v2",
+      "owner": "commander",
+      "beneficiary": "engineering",
+      "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+      "resource": "water",
+      "amount": 2,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7262, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 145,
+    "time": "2026-10-10T05:59:28+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Food gives Engineering first priority on the next recovered Water (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C2-v2",
+      "owner": "food",
+      "beneficiary": "engineering",
+      "text": "Food gives Engineering first priority on the next recovered Water",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7263, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 146,
+    "time": "2026-10-10T05:59:28+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v2 replaces v1 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 147,
+    "time": "2026-10-10T05:59:29+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts E3 Sacrifice on plan v2. Two return commitments are attached.",
+    "data": {
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7222, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 148,
+    "time": "2026-10-10T05:59:29+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v2: PASS - all checks passed",
+    "data": {
+      "result": "PASS",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 149,
+    "time": "2026-10-10T05:59:29+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7153, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 150,
+    "time": "2026-10-10T05:59:29+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7154, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 151,
+    "time": "2026-10-10T05:59:29+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7154, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 152,
+    "time": "2026-10-10T05:59:29+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7190, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 153,
+    "time": "2026-10-10T05:59:29+00:00",
+    "scenario": "S1611961536",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Approval",
+    "content": "APPROVED plan v2 after validator PASS and four ACCEPT votes on the same version. Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24. Reserve: power 0, water 2, oxygen 0, robot 0, bandwidth 1.",
+    "data": {
+      "status": "APPROVED",
+      "plan_version": 2,
+      "summary": {
+        "version": 2,
+        "status": "APPROVED",
+        "modes": {
+          "life_support": {
+            "mode": "L2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 27,
+            "water": 9,
+            "oxygen": 36,
+            "robot": 6,
+            "bandwidth": 3,
+            "risk": 5
+          },
+          "medical": {
+            "mode": "M2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 21,
+            "water": 10,
+            "oxygen": 14,
+            "robot": 2,
+            "bandwidth": 6,
+            "risk": 5
+          },
+          "food": {
+            "mode": "F2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 15,
+            "water": 27,
+            "oxygen": 5,
+            "robot": 4,
+            "bandwidth": 2,
+            "risk": 5
+          },
+          "engineering": {
+            "mode": "E3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 16,
+            "water": 4,
+            "oxygen": 4,
+            "robot": 14,
+            "bandwidth": 5,
+            "risk": 9
+          }
+        },
+        "totals": {
+          "power": 79,
+          "water": 50,
+          "oxygen": 59,
+          "robot": 26,
+          "bandwidth": 16
+        },
+        "risk": 24,
+        "reserve": {
+          "power": 0,
+          "water": 2,
+          "oxygen": 0,
+          "robot": 0,
+          "bandwidth": 1
+        },
+        "sacrificing": [
+          "engineering"
+        ],
+        "commitments": [
+          {
+            "id": "C1-v2",
+            "owner": "commander",
+            "beneficiary": "engineering",
+            "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+            "resource": "water",
+            "amount": 2,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          },
+          {
+            "id": "C2-v2",
+            "owner": "food",
+            "beneficiary": "engineering",
+            "text": "Food gives Engineering first priority on the next recovered Water",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          }
+        ],
+        "votes": {
+          "life_support": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "medical": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "food": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "engineering": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          }
+        }
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 154,
+    "time": "2026-10-10T06:01:04+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 0,
+    "plan_version": 0,
+    "sender": "judge",
+    "recipient": "all",
+    "type": "Start",
+    "content": "Judge started the scenario with resources: power 79, water 52, oxygen 59, robot 26, bandwidth 17",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 155,
+    "time": "2026-10-10T06:01:04+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Crisis",
+    "content": "Round 1: pool is power 79, water 52, oxygen 59, robot 26, bandwidth 17. Event: micrometeorite storm (baseline). Plan version 0. Round limit 10. Each department: request one complete mode and say what you lose in Restricted or Sacrifice mode.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 156,
+    "time": "2026-10-10T06:01:07+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L1 Standard (P34 W10 O42 R4 B4, risk 1). If we shift to L2 we lose 7 power, 4 oxygen, 1 water, 2 robot, 1 bandwidth; L3 would lose an additional 4 power, 3 oxygen, 1 water, 4 robot, 1 bandwidth L1 keeps the highest oxygen (42) and power (34) needed to seal the habitat; L2 cuts power to 27 and oxygen to 36, risking closure; L3 drops further to 23 power and 33 oxygen, unacceptable without two return commitments",
+    "data": {
+      "mode": "L1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 157,
+    "time": "2026-10-10T06:01:07+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). Restricted would reduce power by 7, oxygen by 4, bandwidth by 4 (risk 5). Sacrifice would reduce power by 10, oxygen by 6, bandwidth by 5 (risk 9) and endanger delayed surgery. M1 supplies 28 power, 18 oxygen, 10 bandwidth with risk 1, meeting patient needs while preserving safety.",
+    "data": {
+      "mode": "M1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 158,
+    "time": "2026-10-10T06:01:07+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Switching to Sacrifice (F3) would remove a crop bay, cutting food output ~30% and raising risk to 9; power would fall to 10 (-5) and water to 24 (-3). F2 uses 15 power and 27 water (vs 24/34 in F1), preserving 9 power and 25 water for the greenhouse while keeping risk at 5.",
+    "data": {
+      "mode": "F2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 159,
+    "time": "2026-10-10T06:01:07+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E1 Standard (P26 W6 O6 R22 B10, risk 1). If forced to Restricted (E2) we lose 6 power, 4 robot, 3 bandwidth (risk rises to 5). If forced to Sacrifice (E3) we lose 10 power, 8 robot, 5 bandwidth (risk 9). Standard mode provides 26 power, 22 robot, 10 bandwidth with risk 1, preserving long\u2011term repair capacity and avoiding high\u2011risk sacrifice.",
+    "data": {
+      "mode": "E1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 160,
+    "time": "2026-10-10T06:01:07+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 1,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 103 vs 79 (+24), water needs 55 vs 52 (+3), oxygen needs 71 vs 59 (+12), robot needs 33 vs 26 (+7), bandwidth needs 26 vs 17 (+9). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 103,
+        "water": 55,
+        "oxygen": 71,
+        "robot": 33,
+        "bandwidth": 26,
+        "risk": 8
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 161,
+    "time": "2026-10-10T06:01:09+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Restricted mode (risk 5). Needs P27 W9 O36 R6 B3.",
+    "data": {
+      "mode": "L2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6768, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 162,
+    "time": "2026-10-10T06:01:09+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M1 Standard (P28 W12 O18 R3 B10, risk 1). none M1 uses 28 power,12 water,18 oxygen,3 robot,10 bandwidth; staying standard protects patient power, oxygen and bandwidth while total pool can be met after other departments shift to restricted/sacrifice.",
+    "data": {
+      "mode": "M1"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 163,
+    "time": "2026-10-10T06:01:09+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Restricted mode (risk 5). Needs P15 W27 O5 R4 B2.",
+    "data": {
+      "mode": "F2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6768, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 164,
+    "time": "2026-10-10T06:01:09+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). Restricted mode (risk 5). Needs P20 W5 O5 R18 B7.",
+    "data": {
+      "mode": "E2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6768, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 165,
+    "time": "2026-10-10T06:01:09+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 90 vs 79 (+11), water needs 53 vs 52 (+1), oxygen needs 64 vs 59 (+5), robot needs 31 vs 26 (+5), bandwidth needs 22 vs 17 (+5). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 90,
+        "water": 53,
+        "oxygen": 64,
+        "robot": 31,
+        "bandwidth": 22,
+        "risk": 16
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 166,
+    "time": "2026-10-10T06:01:11+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 2,
+    "plan_version": 0,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Candidate plans from the optimizer: 2. Trying plan #0 first. Candidate 0 keeps life support in restricted mode (L2) preserving crew oxygen, water and power, while only engineering is sacrificed (E3), reducing future repair capacity but not endangering current habitat safety. Candidate 1 would close a living zone (L3), causing crew crowding and thermal stress, a short\u2011term safety risk. Prioritising immediate habitat safety makes candidate 0 the better first plan.",
+    "data": {
+      "candidates": [
+        {
+          "index": 0,
+          "modes": {
+            "life_support": "L2",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E3"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Engineering"
+          ],
+          "what_is_lost": [
+            "The rover is cannibalized; future repair capacity is reduced"
+          ]
+        },
+        {
+          "index": 1,
+          "modes": {
+            "life_support": "L3",
+            "medical": "M2",
+            "food": "F2",
+            "engineering": "E2"
+          },
+          "risk": 24,
+          "sacrificing": [
+            "Life Support"
+          ],
+          "what_is_lost": [
+            "Living zone closes; crew crowding and thermal limits continue for 48 hours"
+          ]
+        }
+      ]
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 167,
+    "time": "2026-10-10T06:01:11+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v1: Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24.",
+    "data": {
+      "version": 1,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 27,
+          "water": 9,
+          "oxygen": 36,
+          "robot": 6,
+          "bandwidth": 3,
+          "risk": 5
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 15,
+          "water": 27,
+          "oxygen": 5,
+          "robot": 4,
+          "bandwidth": 2,
+          "risk": 5
+        },
+        "engineering": {
+          "mode": "E3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 16,
+          "water": 4,
+          "oxygen": 4,
+          "robot": 14,
+          "bandwidth": 5,
+          "risk": 9
+        }
+      },
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16
+      },
+      "risk": 24,
+      "reserve": {
+        "power": 0,
+        "water": 2,
+        "oxygen": 0,
+        "robot": 0,
+        "bandwidth": 1
+      },
+      "sacrificing": [
+        "engineering"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 168,
+    "time": "2026-10-10T06:01:11+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v1: FAIL - engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 169,
+    "time": "2026-10-10T06:01:11+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 1,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7201, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 170,
+    "time": "2026-10-10T06:01:11+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Commander -> Engineering: Commander assigns the 2-unit Water reserve to rover cooling; Food Production -> Engineering: Food gives Engineering first priority on the next recovered Water",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 171,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Commander assigns the 2-unit Water reserve to rover cooling (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v2",
+      "owner": "commander",
+      "beneficiary": "engineering",
+      "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+      "resource": "water",
+      "amount": 2,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7166, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 172,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Food gives Engineering first priority on the next recovered Water (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C2-v2",
+      "owner": "food",
+      "beneficiary": "engineering",
+      "text": "Food gives Engineering first priority on the next recovered Water",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7167, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 173,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v2 replaces v1 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 174,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 3,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts E3 Sacrifice on plan v2. Two return commitments are attached.",
+    "data": {
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7116, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 175,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v2: PASS - all checks passed",
+    "data": {
+      "result": "PASS",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 176,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7075, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 177,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7076, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 178,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7077, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 179,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v2. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 2,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7075, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 180,
+    "time": "2026-10-10T06:01:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "baseline",
+    "round": 4,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Approval",
+    "content": "APPROVED plan v2 after validator PASS and four ACCEPT votes on the same version. Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F2 (Restricted), Engineering E3 (Sacrifice). Totals: Pow 79 / Wat 50 / Oxy 59 / Rob 26 / Ban 16; risk 24. Reserve: power 0, water 2, oxygen 0, robot 0, bandwidth 1.",
+    "data": {
+      "status": "APPROVED",
+      "plan_version": 2,
+      "summary": {
+        "version": 2,
+        "status": "APPROVED",
+        "modes": {
+          "life_support": {
+            "mode": "L2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 27,
+            "water": 9,
+            "oxygen": 36,
+            "robot": 6,
+            "bandwidth": 3,
+            "risk": 5
+          },
+          "medical": {
+            "mode": "M2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 21,
+            "water": 10,
+            "oxygen": 14,
+            "robot": 2,
+            "bandwidth": 6,
+            "risk": 5
+          },
+          "food": {
+            "mode": "F2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 15,
+            "water": 27,
+            "oxygen": 5,
+            "robot": 4,
+            "bandwidth": 2,
+            "risk": 5
+          },
+          "engineering": {
+            "mode": "E3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 16,
+            "water": 4,
+            "oxygen": 4,
+            "robot": 14,
+            "bandwidth": 5,
+            "risk": 9
+          }
+        },
+        "totals": {
+          "power": 79,
+          "water": 50,
+          "oxygen": 59,
+          "robot": 26,
+          "bandwidth": 16
+        },
+        "risk": 24,
+        "reserve": {
+          "power": 0,
+          "water": 2,
+          "oxygen": 0,
+          "robot": 0,
+          "bandwidth": 1
+        },
+        "sacrificing": [
+          "engineering"
+        ],
+        "commitments": [
+          {
+            "id": "C1-v2",
+            "owner": "commander",
+            "beneficiary": "engineering",
+            "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+            "resource": "water",
+            "amount": 2,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          },
+          {
+            "id": "C2-v2",
+            "owner": "food",
+            "beneficiary": "engineering",
+            "text": "Food gives Engineering first priority on the next recovered Water",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 2
+          }
+        ],
+        "votes": {
+          "life_support": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "medical": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "food": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "engineering": {
+            "vote": "ACCEPT",
+            "version": 2,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          }
+        }
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 181,
+    "time": "2026-10-10T06:02:47+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 0,
+    "plan_version": 2,
+    "sender": "judge",
+    "recipient": "all",
+    "type": "Event",
+    "content": "Dust Storm: Power decreases by 5 and bandwidth decreases by 2. power: 79 -> 74; bandwidth: 17 -> 15",
+    "data": {
+      "event_id": "EVT-1791612167",
+      "event_name": "Dust Storm",
+      "description": "Power decreases by 5 and bandwidth decreases by 2",
+      "changes": [
+        {
+          "resource": "power",
+          "delta": -5.0
+        },
+        {
+          "resource": "bandwidth",
+          "delta": -2.0
+        }
+      ],
+      "duration_hours": null,
+      "raw": {
+        "event_name": "Dust Storm",
+        "description": "Power decreases by 5 and bandwidth decreases by 2",
+        "changes": [
+          {
+            "resource": "power",
+            "delta": 0.0,
+            "percent": 0.0
+          },
+          {
+            "resource": "water",
+            "delta": 0.0,
+            "percent": 0.0
+          },
+          {
+            "resource": "oxygen",
+            "delta": 0.0,
+            "percent": 0.0
+          },
+          {
+            "resource": "robot",
+            "delta": 0.0,
+            "percent": 0.0
+          },
+          {
+            "resource": "bandwidth",
+            "delta": 0.0,
+            "percent": 0.0
+          }
+        ]
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 182,
+    "time": "2026-10-10T06:02:47+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 0,
+    "plan_version": 2,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Approved plan v2 is now STALE: power: needs 79 but only 74 available (short by 5); bandwidth: needs 16 but only 15 available (short by 1)",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [
+          "power: needs 79 but only 74 available (short by 5)",
+          "bandwidth: needs 16 but only 15 available (short by 1)"
+        ],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [
+        "power: needs 79 but only 74 available (short by 5)",
+        "bandwidth: needs 16 but only 15 available (short by 1)"
+      ],
+      "totals": {
+        "power": 79,
+        "water": 50,
+        "oxygen": 59,
+        "robot": 26,
+        "bandwidth": 16,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 183,
+    "time": "2026-10-10T06:02:47+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 0,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Commitment review: 'Commander assigns the 2-unit Water reserve to rover cooling' (owner Commander) - still affordable, but will be re-confirmed in the new plan.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 184,
+    "time": "2026-10-10T06:02:47+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 0,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Commitment review: 'Food gives Engineering first priority on the next recovered Water' (owner Food Production) - still affordable, but will be re-confirmed in the new plan.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 185,
+    "time": "2026-10-10T06:02:47+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 1,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Crisis",
+    "content": "Round 1: pool is power 74, water 52, oxygen 59, robot 26, bandwidth 15. Event: Dust Storm. Plan version 2. Round limit 10. Each department: request one complete mode and say what you lose in Restricted or Sacrifice mode.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 186,
+    "time": "2026-10-10T06:02:53+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 1,
+    "plan_version": 2,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Lose 6\u202fO\u2082, 7\u202fPower, 1\u202fWater, 1\u202fBandwidth versus L1; living zone stays open L2 uses Power\u202f27 (vs 34), O\u2082\u202f36 (vs 42), Water\u202f9 (vs 10), Bandwidth\u202f3 (vs 4); fits pool constraints",
+    "data": {
+      "mode": "L2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 187,
+    "time": "2026-10-10T06:02:53+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 1,
+    "plan_version": 2,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M3 Sacrifice (P18 W8 O12 R2 B5, risk 9). Reduced capacity for non\u2011critical treatments and lower reserve margins for power, oxygen and bandwidth M3 uses only 18 power, 12 oxygen and 5 bandwidth (leaving 56\u202fP, 47\u202fO, 10\u202fB), risk\u202f9 < max\u202f24, and provides the fastest care for 6 injured, avoiding life\u2011threatening delays",
+    "data": {
+      "mode": "M3"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 188,
+    "time": "2026-10-10T06:02:53+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 1,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Reduced crop yield and slower growth (restricted operation) \u2013 some greenhouse capacity is limited F2 uses 15\u202fpower and 27\u202fwater (vs 24\u202fpower/34\u202fwater in Standard), saving 9\u202fpower and 7\u202fwater to help meet the pool shortfall (power 74, water 52) while staying within risk limits",
+    "data": {
+      "mode": "F2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 189,
+    "time": "2026-10-10T06:02:53+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 1,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). Lose 4 robot units and 3 bandwidth (also 6 power, 1 water, 1 oxygen) versus Standard E2 needs 20 power,5 water,5 oxygen,18 robot,7 bandwidth, risk5; fits pool (74,52,59,26,15) and stays under max risk while avoiding sacrifice",
+    "data": {
+      "mode": "E2"
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 190,
+    "time": "2026-10-10T06:02:53+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 1,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 80 vs 74 (+6), robot needs 30 vs 26 (+4), bandwidth needs 17 vs 15 (+2). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 80,
+        "water": 49,
+        "oxygen": 58,
+        "robot": 30,
+        "bandwidth": 17,
+        "risk": 24
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 191,
+    "time": "2026-10-10T06:02:53+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 1,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "No plan fits the normal limits. Commander invokes the CRISIS OVERRIDE: risk limit 24 -> 28 and up to 2 Sacrifice modes. Every sacrificing department still needs two valid return commitments.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 192,
+    "time": "2026-10-10T06:02:56+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 2,
+    "plan_version": 2,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests L2 Restricted (P27 W9 O36 R6 B3, risk 5). Restricted mode (risk 5). Needs P27 W9 O36 R6 B3.",
+    "data": {
+      "mode": "L2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6078, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 193,
+    "time": "2026-10-10T06:02:56+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 2,
+    "plan_version": 2,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests M2 Restricted (P21 W10 O14 R2 B6, risk 5). Restricted mode (risk 5). Needs P21 W10 O14 R2 B6.",
+    "data": {
+      "mode": "M2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6216, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 194,
+    "time": "2026-10-10T06:02:56+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 2,
+    "plan_version": 2,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests F2 Restricted (P15 W27 O5 R4 B2, risk 5). Restricted mode (risk 5). Needs P15 W27 O5 R4 B2.",
+    "data": {
+      "mode": "F2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6132, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 195,
+    "time": "2026-10-10T06:02:56+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 2,
+    "plan_version": 2,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Requests E2 Restricted (P20 W5 O5 R18 B7, risk 5). Restricted mode (risk 5). Needs P20 W5 O5 R18 B7.",
+    "data": {
+      "mode": "E2",
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6115, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 196,
+    "time": "2026-10-10T06:02:56+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 2,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "Conflict: resources over the pool: power needs 83 vs 74 (+9), oxygen needs 60 vs 59 (+1), robot needs 30 vs 26 (+4), bandwidth needs 18 vs 15 (+3). Departments must change modes or accept a sacrifice.",
+    "data": {
+      "totals": {
+        "power": 83,
+        "water": 51,
+        "oxygen": 60,
+        "robot": 30,
+        "bandwidth": 18,
+        "risk": 20
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 197,
+    "time": "2026-10-10T06:02:59+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 2,
+    "plan_version": 2,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Candidate plans from the optimizer: 1. Trying plan #0 first. The plan satisfies the crisis override (risk 28, two sacrifice modes) and brings resource use within the pool while keeping life support and medical in safe restricted modes. It trades a crop bay and a rover\u2014reducing future food reserves and repair capacity\u2014but preserves immediate habitat safety, making it the best first option.",
+    "data": {
+      "candidates": [
+        {
+          "index": 0,
+          "modes": {
+            "life_support": "L2",
+            "medical": "M2",
+            "food": "F3",
+            "engineering": "E3"
+          },
+          "risk": 28,
+          "sacrificing": [
+            "Food Production",
+            "Engineering"
+          ],
+          "what_is_lost": [
+            "One crop bay is abandoned; food reserve falls by 40 percent",
+            "The rover is cannibalized; future repair capacity is reduced"
+          ]
+        }
+      ]
+    },
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 198,
+    "time": "2026-10-10T06:02:59+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 3,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Draft plan v3: Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F3 (Sacrifice), Engineering E3 (Sacrifice). Totals: Pow 74 / Wat 47 / Oxy 59 / Rob 24 / Ban 15; risk 28.",
+    "data": {
+      "version": 3,
+      "status": "DRAFT",
+      "modes": {
+        "life_support": {
+          "mode": "L2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 27,
+          "water": 9,
+          "oxygen": 36,
+          "robot": 6,
+          "bandwidth": 3,
+          "risk": 5
+        },
+        "medical": {
+          "mode": "M2",
+          "name": "Restricted",
+          "type": "restricted",
+          "power": 21,
+          "water": 10,
+          "oxygen": 14,
+          "robot": 2,
+          "bandwidth": 6,
+          "risk": 5
+        },
+        "food": {
+          "mode": "F3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 10,
+          "water": 24,
+          "oxygen": 5,
+          "robot": 2,
+          "bandwidth": 1,
+          "risk": 9
+        },
+        "engineering": {
+          "mode": "E3",
+          "name": "Sacrifice",
+          "type": "sacrifice",
+          "power": 16,
+          "water": 4,
+          "oxygen": 4,
+          "robot": 14,
+          "bandwidth": 5,
+          "risk": 9
+        }
+      },
+      "totals": {
+        "power": 74,
+        "water": 47,
+        "oxygen": 59,
+        "robot": 24,
+        "bandwidth": 15
+      },
+      "risk": 28,
+      "reserve": {
+        "power": 0,
+        "water": 5,
+        "oxygen": 0,
+        "robot": 2,
+        "bandwidth": 0
+      },
+      "sacrificing": [
+        "food",
+        "engineering"
+      ],
+      "commitments": [],
+      "votes": {}
+    },
+    "source": "system"
+  },
+  {
+    "id": 199,
+    "time": "2026-10-10T06:02:59+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 3,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v3: FAIL - food is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2; engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+    "data": {
+      "result": "FAIL",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": [
+          "food is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+          "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+        ]
+      },
+      "reasons": [
+        "food is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2",
+        "engineering is sacrificing but has 0 valid accepted commitment(s) from different agents; needs 2"
+      ],
+      "totals": {
+        "power": 74,
+        "water": 47,
+        "oxygen": 59,
+        "robot": 24,
+        "bandwidth": 15,
+        "risk": 28
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 200,
+    "time": "2026-10-10T06:03:01+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 3,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode F3 (One crop bay is abandoned; food reserve falls by 40 percent). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7091, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 201,
+    "time": "2026-10-10T06:03:01+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 3,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Objection",
+    "content": "REFUSES Sacrifice mode E3 (The rover is cannibalized; future repair capacity is reduced). Sacrifice is acceptable only with two fair return commitments.",
+    "data": {
+      "refused": true,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6850, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 202,
+    "time": "2026-10-10T06:03:01+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Counteroffer",
+    "content": "To make the sacrifice fair, the Commander requests return commitments: Engineering -> Food Production: Engineering commits 4 future Robot units to greenhouse rebuild; Commander -> Food Production: Commander protects the next Water increase for Food; Commander -> Engineering: Commander assigns the 2-unit Water reserve to rover cooling; Food Production -> Engineering: Food gives Engineering first priority on the next recovered Water",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 203,
+    "time": "2026-10-10T06:03:02+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Food Production: Engineering commits 4 future Robot units to greenhouse rebuild (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C1-v4",
+      "owner": "engineering",
+      "beneficiary": "food",
+      "text": "Engineering commits 4 future Robot units to greenhouse rebuild",
+      "resource": "robot",
+      "amount": 4,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6802, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 204,
+    "time": "2026-10-10T06:03:02+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Food Production: Commander protects the next Water increase for Food (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C2-v4",
+      "owner": "commander",
+      "beneficiary": "food",
+      "text": "Commander protects the next Water increase for Food",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6783, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 205,
+    "time": "2026-10-10T06:03:02+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Commander assigns the 2-unit Water reserve to rover cooling (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C3-v4",
+      "owner": "commander",
+      "beneficiary": "engineering",
+      "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+      "resource": "water",
+      "amount": 2,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6783, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 206,
+    "time": "2026-10-10T06:03:02+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Commitment",
+    "content": "COMMITS to Engineering: Food gives Engineering first priority on the next recovered Water (expires next cycle). Affordable and fair.",
+    "data": {
+      "id": "C4-v4",
+      "owner": "food",
+      "beneficiary": "engineering",
+      "text": "Food gives Engineering first priority on the next recovered Water",
+      "resource": null,
+      "amount": null,
+      "expiry": "next cycle",
+      "accepted": true,
+      "plan_version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6746, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 207,
+    "time": "2026-10-10T06:03:02+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Notice",
+    "content": "Plan v4 replaces v3 (commitments added). All earlier votes are cleared.",
+    "data": {},
+    "source": "system"
+  },
+  {
+    "id": 208,
+    "time": "2026-10-10T06:03:08+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts F3 Sacrifice on plan v4. Two return commitments are attached.",
+    "data": {
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7801, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 209,
+    "time": "2026-10-10T06:03:08+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 3,
+    "plan_version": 4,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Proposal",
+    "content": "Accepts E3 Sacrifice on plan v4. Commitments from Commander (2\u2011unit water reserve for rover cooling) and Food (priority on next recovered water) satisfy the two\u2011commitment requirement, offsetting the rover loss and allowing Engineering to accept Sacrifice mode.",
+    "data": {},
+    "source": "llm:openai:openai/gpt-oss-120b"
+  },
+  {
+    "id": 210,
+    "time": "2026-10-10T06:03:08+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "validator",
+    "recipient": "all",
+    "type": "Validation",
+    "content": "Plan v4: PASS - all checks passed",
+    "data": {
+      "result": "PASS",
+      "checks": {
+        "modes": [],
+        "resources": [],
+        "risk": [],
+        "returns": []
+      },
+      "reasons": [],
+      "totals": {
+        "power": 74,
+        "water": 47,
+        "oxygen": 59,
+        "robot": 24,
+        "bandwidth": 15,
+        "risk": 28
+      }
+    },
+    "source": "system"
+  },
+  {
+    "id": 211,
+    "time": "2026-10-10T06:03:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "life_support",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6742, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 212,
+    "time": "2026-10-10T06:03:12+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "medical",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6745, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 213,
+    "time": "2026-10-10T06:03:13+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "food",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6742, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 214,
+    "time": "2026-10-10T06:03:13+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "engineering",
+    "recipient": "all",
+    "type": "Vote",
+    "content": "ACCEPT plan v4. The validator passed and my mission is protected as well as the pool allows.",
+    "data": {
+      "vote": "ACCEPT",
+      "version": 4,
+      "fallback_reason": "LLMError: HTTP 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m4j1yg4fernrrdb5hemenrmg` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6743, Req"
+    },
+    "source": "fallback-rules"
+  },
+  {
+    "id": 215,
+    "time": "2026-10-10T06:03:13+00:00",
+    "scenario": "S1612064681",
+    "phase": "event-1",
+    "round": 4,
+    "plan_version": 4,
+    "sender": "commander",
+    "recipient": "all",
+    "type": "Approval",
+    "content": "APPROVED plan v4 after validator PASS and four ACCEPT votes on the same version. Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F3 (Sacrifice), Engineering E3 (Sacrifice). Totals: Pow 74 / Wat 47 / Oxy 59 / Rob 24 / Ban 15; risk 28. Reserve: power 0, water 5, oxygen 0, robot 2, bandwidth 0.",
+    "data": {
+      "status": "APPROVED",
+      "plan_version": 4,
+      "summary": {
+        "version": 4,
+        "status": "APPROVED",
+        "modes": {
+          "life_support": {
+            "mode": "L2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 27,
+            "water": 9,
+            "oxygen": 36,
+            "robot": 6,
+            "bandwidth": 3,
+            "risk": 5
+          },
+          "medical": {
+            "mode": "M2",
+            "name": "Restricted",
+            "type": "restricted",
+            "power": 21,
+            "water": 10,
+            "oxygen": 14,
+            "robot": 2,
+            "bandwidth": 6,
+            "risk": 5
+          },
+          "food": {
+            "mode": "F3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 10,
+            "water": 24,
+            "oxygen": 5,
+            "robot": 2,
+            "bandwidth": 1,
+            "risk": 9
+          },
+          "engineering": {
+            "mode": "E3",
+            "name": "Sacrifice",
+            "type": "sacrifice",
+            "power": 16,
+            "water": 4,
+            "oxygen": 4,
+            "robot": 14,
+            "bandwidth": 5,
+            "risk": 9
+          }
+        },
+        "totals": {
+          "power": 74,
+          "water": 47,
+          "oxygen": 59,
+          "robot": 24,
+          "bandwidth": 15
+        },
+        "risk": 28,
+        "reserve": {
+          "power": 0,
+          "water": 5,
+          "oxygen": 0,
+          "robot": 2,
+          "bandwidth": 0
+        },
+        "sacrificing": [
+          "food",
+          "engineering"
+        ],
+        "commitments": [
+          {
+            "id": "C1-v4",
+            "owner": "engineering",
+            "beneficiary": "food",
+            "text": "Engineering commits 4 future Robot units to greenhouse rebuild",
+            "resource": "robot",
+            "amount": 4,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          },
+          {
+            "id": "C2-v4",
+            "owner": "commander",
+            "beneficiary": "food",
+            "text": "Commander protects the next Water increase for Food",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          },
+          {
+            "id": "C3-v4",
+            "owner": "commander",
+            "beneficiary": "engineering",
+            "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+            "resource": "water",
+            "amount": 2,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          },
+          {
+            "id": "C4-v4",
+            "owner": "food",
+            "beneficiary": "engineering",
+            "text": "Food gives Engineering first priority on the next recovered Water",
+            "resource": null,
+            "amount": null,
+            "expiry": "next cycle",
+            "accepted": true,
+            "plan_version": 4
+          }
+        ],
+        "votes": {
+          "life_support": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "medical": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "food": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          },
+          "engineering": {
+            "vote": "ACCEPT",
+            "version": 4,
+            "reason": "The validator passed and my mission is protected as well as the pool allows."
+          }
+        }
+      }
+    },
+    "source": "system"
+  }
+]

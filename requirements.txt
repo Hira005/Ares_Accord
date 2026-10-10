@@ -1,0 +1,4 @@
+streamlit>=1.35
+pandas>=2.0
+matplotlib>=3.7        # only for make_diagram.py
+python-dotenv>=1.0     # optional: loads .env automatically

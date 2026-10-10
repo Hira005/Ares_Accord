@@ -1,0 +1,222 @@
+{
+  "resources": {
+    "power": 79,
+    "water": 52,
+    "oxygen": 59,
+    "robot": 26,
+    "bandwidth": 17
+  },
+  "limits": {
+    "max_risk": 24,
+    "max_sacrifice": 1,
+    "min_return_commitments": 2
+  },
+  "departments": [
+    "life_support",
+    "medical",
+    "food",
+    "engineering"
+  ],
+  "modes": {
+    "life_support": {
+      "L1": {
+        "name": "Standard",
+        "type": "standard",
+        "power": 34,
+        "water": 10,
+        "oxygen": 42,
+        "robot": 4,
+        "bandwidth": 4,
+        "risk": 1
+      },
+      "L2": {
+        "name": "Restricted",
+        "type": "restricted",
+        "power": 27,
+        "water": 9,
+        "oxygen": 36,
+        "robot": 6,
+        "bandwidth": 3,
+        "risk": 5
+      },
+      "L3": {
+        "name": "Sacrifice",
+        "type": "sacrifice",
+        "power": 23,
+        "water": 8,
+        "oxygen": 33,
+        "robot": 2,
+        "bandwidth": 2,
+        "risk": 9
+      }
+    },
+    "medical": {
+      "M1": {
+        "name": "Standard",
+        "type": "standard",
+        "power": 28,
+        "water": 12,
+        "oxygen": 18,
+        "robot": 3,
+        "bandwidth": 10,
+        "risk": 1
+      },
+      "M2": {
+        "name": "Restricted",
+        "type": "restricted",
+        "power": 21,
+        "water": 10,
+        "oxygen": 14,
+        "robot": 2,
+        "bandwidth": 6,
+        "risk": 5
+      },
+      "M3": {
+        "name": "Sacrifice",
+        "type": "sacrifice",
+        "power": 18,
+        "water": 8,
+        "oxygen": 12,
+        "robot": 2,
+        "bandwidth": 5,
+        "risk": 9
+      }
+    },
+    "food": {
+      "F1": {
+        "name": "Standard",
+        "type": "standard",
+        "power": 24,
+        "water": 34,
+        "oxygen": 8,
+        "robot": 4,
+        "bandwidth": 2,
+        "risk": 1
+      },
+      "F2": {
+        "name": "Restricted",
+        "type": "restricted",
+        "power": 15,
+        "water": 27,
+        "oxygen": 5,
+        "robot": 4,
+        "bandwidth": 2,
+        "risk": 5
+      },
+      "F3": {
+        "name": "Sacrifice",
+        "type": "sacrifice",
+        "power": 10,
+        "water": 24,
+        "oxygen": 5,
+        "robot": 2,
+        "bandwidth": 1,
+        "risk": 9
+      }
+    },
+    "engineering": {
+      "E1": {
+        "name": "Standard",
+        "type": "standard",
+        "power": 26,
+        "water": 6,
+        "oxygen": 6,
+        "robot": 22,
+        "bandwidth": 10,
+        "risk": 1
+      },
+      "E2": {
+        "name": "Restricted",
+        "type": "restricted",
+        "power": 20,
+        "water": 5,
+        "oxygen": 5,
+        "robot": 18,
+        "bandwidth": 7,
+        "risk": 5
+      },
+      "E3": {
+        "name": "Sacrifice",
+        "type": "sacrifice",
+        "power": 16,
+        "water": 4,
+        "oxygen": 4,
+        "robot": 14,
+        "bandwidth": 5,
+        "risk": 9
+      }
+    }
+  },
+  "return_agreements": {
+    "L3": [
+      {
+        "owner": "engineering",
+        "resource": "robot",
+        "amount": 4,
+        "text": "Engineering commits 4 of its Robot units to habitat inspection"
+      },
+      {
+        "owner": "commander",
+        "text": "Commander gives habitat restoration first priority next cycle"
+      }
+    ],
+    "M3": [
+      {
+        "owner": "life_support",
+        "resource": "oxygen",
+        "amount": 3,
+        "text": "Life Support reserves 3 of its Oxygen units for care"
+      },
+      {
+        "owner": "commander",
+        "text": "Commander gives Medical first priority next cycle"
+      }
+    ],
+    "F3": [
+      {
+        "owner": "engineering",
+        "resource": "robot",
+        "amount": 4,
+        "text": "Engineering commits 4 future Robot units to greenhouse rebuild"
+      },
+      {
+        "owner": "commander",
+        "text": "Commander protects the next Water increase for Food"
+      }
+    ],
+    "E3": [
+      {
+        "owner": "commander",
+        "resource": "water",
+        "amount": 2,
+        "text": "Commander assigns the 2-unit Water reserve to rover cooling"
+      },
+      {
+        "owner": "food",
+        "text": "Food gives Engineering first priority on the next recovered Water"
+      }
+    ]
+  },
+  "sacrifice_loss": {
+    "L3": "Living zone closes; crew crowding and thermal limits continue for 48 hours",
+    "M3": "One surgery is delayed and the patient remains unstable",
+    "F3": "One crop bay is abandoned; food reserve falls by 40 percent",
+    "E3": "The rover is cannibalized; future repair capacity is reduced"
+  },
+  "override_limits": {
+    "max_risk": 28,
+    "max_sacrifice": 2
+  },
+  "runtime": {
+    "max_rounds": 10,
+    "negotiation_timeout_s": 170,
+    "llm_timeout_s": 25
+  },
+  "labels": {
+    "commander": "Commander",
+    "life_support": "Life Support",
+    "medical": "Medical",
+    "food": "Food Production",
+    "engineering": "Engineering"
+  }
+}

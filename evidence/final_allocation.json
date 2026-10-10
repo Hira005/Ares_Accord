@@ -1,0 +1,326 @@
+{
+  "scenario": "S1612064681",
+  "generated_at": "2026-10-10T06:03:48+00:00",
+  "status": "APPROVED",
+  "llm": "openai:openai/gpt-oss-120b",
+  "fallback_messages_in_transcript": 100,
+  "resources": {
+    "power": 74,
+    "water": 52,
+    "oxygen": 59,
+    "robot": 26,
+    "bandwidth": 15
+  },
+  "limits": {
+    "max_risk": 28,
+    "max_sacrifice": 2,
+    "min_return_commitments": 2
+  },
+  "crisis_override_used": true,
+  "events": [
+    {
+      "event_name": "Dust Storm",
+      "description": "Power decreases by 5 and bandwidth decreases by 2",
+      "changes": [
+        {
+          "resource": "power",
+          "delta": 0.0,
+          "percent": 0.0
+        },
+        {
+          "resource": "water",
+          "delta": 0.0,
+          "percent": 0.0
+        },
+        {
+          "resource": "oxygen",
+          "delta": 0.0,
+          "percent": 0.0
+        },
+        {
+          "resource": "robot",
+          "delta": 0.0,
+          "percent": 0.0
+        },
+        {
+          "resource": "bandwidth",
+          "delta": 0.0,
+          "percent": 0.0
+        }
+      ]
+    }
+  ],
+  "final_plan": {
+    "version": 4,
+    "status": "APPROVED",
+    "modes": {
+      "life_support": {
+        "mode": "L2",
+        "name": "Restricted",
+        "type": "restricted",
+        "power": 27,
+        "water": 9,
+        "oxygen": 36,
+        "robot": 6,
+        "bandwidth": 3,
+        "risk": 5
+      },
+      "medical": {
+        "mode": "M2",
+        "name": "Restricted",
+        "type": "restricted",
+        "power": 21,
+        "water": 10,
+        "oxygen": 14,
+        "robot": 2,
+        "bandwidth": 6,
+        "risk": 5
+      },
+      "food": {
+        "mode": "F3",
+        "name": "Sacrifice",
+        "type": "sacrifice",
+        "power": 10,
+        "water": 24,
+        "oxygen": 5,
+        "robot": 2,
+        "bandwidth": 1,
+        "risk": 9
+      },
+      "engineering": {
+        "mode": "E3",
+        "name": "Sacrifice",
+        "type": "sacrifice",
+        "power": 16,
+        "water": 4,
+        "oxygen": 4,
+        "robot": 14,
+        "bandwidth": 5,
+        "risk": 9
+      }
+    },
+    "totals": {
+      "power": 74,
+      "water": 47,
+      "oxygen": 59,
+      "robot": 24,
+      "bandwidth": 15
+    },
+    "risk": 28,
+    "reserve": {
+      "power": 0,
+      "water": 5,
+      "oxygen": 0,
+      "robot": 2,
+      "bandwidth": 0
+    },
+    "sacrificing": [
+      "food",
+      "engineering"
+    ],
+    "commitments": [
+      {
+        "id": "C1-v4",
+        "owner": "engineering",
+        "beneficiary": "food",
+        "text": "Engineering commits 4 future Robot units to greenhouse rebuild",
+        "resource": "robot",
+        "amount": 4,
+        "expiry": "next cycle",
+        "accepted": true,
+        "plan_version": 4
+      },
+      {
+        "id": "C2-v4",
+        "owner": "commander",
+        "beneficiary": "food",
+        "text": "Commander protects the next Water increase for Food",
+        "resource": null,
+        "amount": null,
+        "expiry": "next cycle",
+        "accepted": true,
+        "plan_version": 4
+      },
+      {
+        "id": "C3-v4",
+        "owner": "commander",
+        "beneficiary": "engineering",
+        "text": "Commander assigns the 2-unit Water reserve to rover cooling",
+        "resource": "water",
+        "amount": 2,
+        "expiry": "next cycle",
+        "accepted": true,
+        "plan_version": 4
+      },
+      {
+        "id": "C4-v4",
+        "owner": "food",
+        "beneficiary": "engineering",
+        "text": "Food gives Engineering first priority on the next recovered Water",
+        "resource": null,
+        "amount": null,
+        "expiry": "next cycle",
+        "accepted": true,
+        "plan_version": 4
+      }
+    ],
+    "votes": {
+      "life_support": {
+        "vote": "ACCEPT",
+        "version": 4,
+        "reason": "The validator passed and my mission is protected as well as the pool allows."
+      },
+      "medical": {
+        "vote": "ACCEPT",
+        "version": 4,
+        "reason": "The validator passed and my mission is protected as well as the pool allows."
+      },
+      "food": {
+        "vote": "ACCEPT",
+        "version": 4,
+        "reason": "The validator passed and my mission is protected as well as the pool allows."
+      },
+      "engineering": {
+        "vote": "ACCEPT",
+        "version": 4,
+        "reason": "The validator passed and my mission is protected as well as the pool allows."
+      }
+    }
+  },
+  "validation": {
+    "result": "PASS",
+    "checks": {
+      "modes": [],
+      "resources": [],
+      "risk": [],
+      "returns": [],
+      "votes": []
+    },
+    "reasons": []
+  },
+  "commander_decision": "APPROVED plan v4 after validator PASS and four ACCEPT votes on the same version. Life Support L2 (Restricted), Medical M2 (Restricted), Food Production F3 (Sacrifice), Engineering E3 (Sacrifice). Totals: Pow 74 / Wat 47 / Oxy 59 / Rob 24 / Ban 15; risk 28. Reserve: power 0, water 5, oxygen 0, robot 2, bandwidth 0.",
+  "agent_records": [
+    {
+      "round": 4,
+      "agent_id": "LIFE_SUPPORT",
+      "proposal": {
+        "oxygen_units": 36,
+        "water_liters": 9,
+        "power_kwh": 27,
+        "food_rations": null,
+        "robot_time_units": 6,
+        "bandwidth_units": 3,
+        "mode": "L2",
+        "mode_name": "Restricted",
+        "plan_version": 4,
+        "justification": "The validator passed and my mission is protected as well as the pool allows."
+      },
+      "vote": "APPROVE",
+      "risk_score": 28,
+      "flag_human_review": true
+    },
+    {
+      "round": 4,
+      "agent_id": "MEDICAL_OFFICER",
+      "proposal": {
+        "oxygen_units": 14,
+        "water_liters": 10,
+        "power_kwh": 21,
+        "food_rations": null,
+        "robot_time_units": 2,
+        "bandwidth_units": 6,
+        "mode": "M2",
+        "mode_name": "Restricted",
+        "plan_version": 4,
+        "justification": "The validator passed and my mission is protected as well as the pool allows."
+      },
+      "vote": "APPROVE",
+      "risk_score": 28,
+      "flag_human_review": true
+    },
+    {
+      "round": 4,
+      "agent_id": "FOOD_PRODUCTION",
+      "proposal": {
+        "oxygen_units": 5,
+        "water_liters": 24,
+        "power_kwh": 10,
+        "food_rations": null,
+        "robot_time_units": 2,
+        "bandwidth_units": 1,
+        "mode": "F3",
+        "mode_name": "Sacrifice",
+        "plan_version": 4,
+        "justification": "The validator passed and my mission is protected as well as the pool allows."
+      },
+      "vote": "APPROVE",
+      "risk_score": 28,
+      "flag_human_review": true
+    },
+    {
+      "round": 4,
+      "agent_id": "ENGINEERING",
+      "proposal": {
+        "oxygen_units": 4,
+        "water_liters": 4,
+        "power_kwh": 16,
+        "food_rations": null,
+        "robot_time_units": 14,
+        "bandwidth_units": 5,
+        "mode": "E3",
+        "mode_name": "Sacrifice",
+        "plan_version": 4,
+        "justification": "The validator passed and my mission is protected as well as the pool allows."
+      },
+      "vote": "APPROVE",
+      "risk_score": 28,
+      "flag_human_review": true
+    }
+  ],
+  "plan_versions": [
+    {
+      "version": 1,
+      "status": "SUPERSEDED",
+      "modes": {
+        "life_support": "L2",
+        "medical": "M2",
+        "food": "F2",
+        "engineering": "E3"
+      },
+      "phase": "baseline"
+    },
+    {
+      "version": 2,
+      "status": "SUPERSEDED",
+      "modes": {
+        "life_support": "L2",
+        "medical": "M2",
+        "food": "F2",
+        "engineering": "E3"
+      },
+      "phase": "baseline"
+    },
+    {
+      "version": 3,
+      "status": "SUPERSEDED",
+      "modes": {
+        "life_support": "L2",
+        "medical": "M2",
+        "food": "F3",
+        "engineering": "E3"
+      },
+      "phase": "event-1"
+    },
+    {
+      "version": 4,
+      "status": "APPROVED",
+      "modes": {
+        "life_support": "L2",
+        "medical": "M2",
+        "food": "F3",
+        "engineering": "E3"
+      },
+      "phase": "event-1"
+    }
+  ]
+}
